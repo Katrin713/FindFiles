@@ -37,22 +37,33 @@ namespace WorkingWithFiles
             }
             return regexPattern;
         }
+        static void AsyncCompleted(IAsyncResult resObj, string fileName)
+        {
+            
+        }
+        static int countFiles;
+        private List<string> getCorrectFiles(string[] allFiles, string pattern)
+        {
+            List<string> correctFiles = new List<string>();
+
+            foreach (string el in allFiles)
+            {
+                Thread.Sleep(200);
+
+                string z = Path.GetFileName(el);
+                BeginInvoke(new MethodInvoker(() => workingFile.Text = "Обрабатываемый файл: " + z));
+                Regex myReg = new Regex(pattern);
+                if (myReg.IsMatch(z))
+                    correctFiles.Add(el);
+            }
+            return correctFiles;
+        }
         private List<string> GetFiles(string path, string pattern)
         {
             var files = new List<string>();
             try
-            {
-                string[] allFiles = Directory.GetFiles(path);
-                List<string> correctFiles = new List<string>();
-               
-                foreach (string el in allFiles)
-                {
-                    var z = Path.GetFileName(el);
-                    Regex myReg = new Regex(pattern);
-                    if (myReg.IsMatch(z))
-                        correctFiles.Add(el);
-                }
-                files.AddRange(correctFiles);
+            {          
+                files.AddRange(getCorrectFiles(Directory.GetFiles(path), pattern));
 
                 foreach (var directory in Directory.GetDirectories(path))
                     files.AddRange(GetFiles(directory, pattern));
@@ -92,6 +103,7 @@ namespace WorkingWithFiles
             specialTextGroup.Visible = (template.Text == "") ? false : true;
         }
 
+        Thread myThread;
         private void startFinding(object sender, EventArgs e)
         {
             if (startDirectory.Text == "")
@@ -104,8 +116,20 @@ namespace WorkingWithFiles
                 MessageBox.Show("Не указан шаблон файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            myThread = new Thread(() => GetFiles(startDirectory.Text, getPattern(template.Text)));
+            myThread.Start();
+            
+            // var temp = GetFiles(startDirectory.Text, getPattern(template.Text));
+        }
 
-            var temp = GetFiles(startDirectory.Text, getPattern(template.Text));
+        private void button4_Click(object sender, EventArgs e)
+        {
+            myThread.Suspend();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            myThread.Resume();
         }
     }
 }

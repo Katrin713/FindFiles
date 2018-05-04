@@ -34,8 +34,9 @@
             this.template = new System.Windows.Forms.TextBox();
             this.workingFile = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.textCountFiles = new System.Windows.Forms.Label();
             this.chooseFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.startDirectory = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -45,7 +46,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.secondTask.SuspendLayout();
             this.specialTextGroup.SuspendLayout();
@@ -90,15 +92,24 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textCountFiles);
             this.groupBox1.Controls.Add(this.workingFile);
             this.groupBox1.Location = new System.Drawing.Point(18, 537);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1460, 665);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(791, 9);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(663, 642);
+            this.treeView1.TabIndex = 10;
             // 
             // label6
             // 
@@ -109,14 +120,14 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Прошедшее время: ";
             // 
-            // label5
+            // textCountFiles
             // 
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(-6, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1184, 45);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Количество обаботанных файлов: ";
+            this.textCountFiles.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textCountFiles.Location = new System.Drawing.Point(-6, 72);
+            this.textCountFiles.Name = "textCountFiles";
+            this.textCountFiles.Size = new System.Drawing.Size(1184, 45);
+            this.textCountFiles.TabIndex = 8;
+            this.textCountFiles.Text = "Количество обаботанных файлов: ";
             // 
             // startDirectory
             // 
@@ -216,12 +227,25 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Текст, содежащийся в файле: ";
             // 
-            // treeView1
+            // button4
             // 
-            this.treeView1.Location = new System.Drawing.Point(646, 9);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(808, 642);
-            this.treeView1.TabIndex = 10;
+            this.button4.Location = new System.Drawing.Point(29, 225);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(302, 89);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Остановить";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(29, 402);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(302, 106);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Возобновить";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -262,7 +286,7 @@
         private System.Windows.Forms.Label workingFile;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label textCountFiles;
         public System.Windows.Forms.FolderBrowserDialog chooseFolder;
         private System.Windows.Forms.TextBox startDirectory;
         private System.Windows.Forms.Button button2;
@@ -274,6 +298,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }
 
