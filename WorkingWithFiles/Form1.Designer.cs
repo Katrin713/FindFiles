@@ -42,9 +42,10 @@
             this.secondTask = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.specialTextGroup = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1.SuspendLayout();
             this.secondTask.SuspendLayout();
             this.specialTextGroup.SuspendLayout();
@@ -89,12 +90,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.workingFile);
             this.groupBox1.Location = new System.Drawing.Point(18, 537);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1178, 624);
+            this.groupBox1.Size = new System.Drawing.Size(1460, 665);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
@@ -133,7 +135,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(182)))), ((int)(((byte)(172)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(1215, 31);
+            this.button2.Location = new System.Drawing.Point(1215, 33);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(237, 48);
@@ -160,7 +162,7 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(182)))), ((int)(((byte)(172)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(1211, 16);
+            this.button3.Location = new System.Drawing.Point(1211, 18);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(237, 48);
@@ -181,14 +183,20 @@
             this.specialTextGroup.TabStop = false;
             this.specialTextGroup.Visible = false;
             // 
-            // label3
+            // button1
             // 
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(-6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(349, 83);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Текст, содежащийся в файле: ";
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(182)))), ((int)(((byte)(172)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(1196, 89);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(231, 48);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Поиск";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.startFinding);
             // 
             // textBox1
             // 
@@ -199,19 +207,21 @@
             this.textBox1.Size = new System.Drawing.Size(824, 206);
             this.textBox1.TabIndex = 3;
             // 
-            // button1
+            // label3
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(182)))), ((int)(((byte)(172)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(1196, 93);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(231, 48);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Поиск";
-            this.button1.UseVisualStyleBackColor = false;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(-6, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(349, 83);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Текст, содежащийся в файле: ";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(646, 9);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(808, 642);
+            this.treeView1.TabIndex = 10;
             // 
             // Form1
             // 
@@ -263,6 +273,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }
 
