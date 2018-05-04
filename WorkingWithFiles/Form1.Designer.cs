@@ -33,9 +33,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.template = new System.Windows.Forms.TextBox();
             this.workingFile = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ResultBox = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.label6 = new System.Windows.Forms.Label();
+            this.textTime = new System.Windows.Forms.Label();
             this.textCountFiles = new System.Windows.Forms.Label();
             this.chooseFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.startDirectory = new System.Windows.Forms.TextBox();
@@ -46,9 +46,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.buttonStop = new System.Windows.Forms.Button();
+            this.buttonReStart = new System.Windows.Forms.Button();
+            this.ResultBox.SuspendLayout();
             this.secondTask.SuspendLayout();
             this.specialTextGroup.SuspendLayout();
             this.SuspendLayout();
@@ -86,23 +86,24 @@
             this.workingFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.workingFile.Location = new System.Drawing.Point(-6, 9);
             this.workingFile.Name = "workingFile";
-            this.workingFile.Size = new System.Drawing.Size(1178, 44);
+            this.workingFile.Size = new System.Drawing.Size(686, 79);
             this.workingFile.TabIndex = 3;
             this.workingFile.Text = "Обрабатываемый файл:";
             // 
-            // groupBox1
+            // ResultBox
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.treeView1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textCountFiles);
-            this.groupBox1.Controls.Add(this.workingFile);
-            this.groupBox1.Location = new System.Drawing.Point(18, 537);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1460, 665);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
+            this.ResultBox.Controls.Add(this.buttonReStart);
+            this.ResultBox.Controls.Add(this.buttonStop);
+            this.ResultBox.Controls.Add(this.treeView1);
+            this.ResultBox.Controls.Add(this.textTime);
+            this.ResultBox.Controls.Add(this.textCountFiles);
+            this.ResultBox.Controls.Add(this.workingFile);
+            this.ResultBox.Location = new System.Drawing.Point(18, 537);
+            this.ResultBox.Name = "ResultBox";
+            this.ResultBox.Size = new System.Drawing.Size(1460, 665);
+            this.ResultBox.TabIndex = 7;
+            this.ResultBox.TabStop = false;
+            this.ResultBox.Visible = false;
             // 
             // treeView1
             // 
@@ -111,21 +112,21 @@
             this.treeView1.Size = new System.Drawing.Size(663, 642);
             this.treeView1.TabIndex = 10;
             // 
-            // label6
+            // textTime
             // 
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(-6, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(308, 43);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Прошедшее время: ";
+            this.textTime.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textTime.Location = new System.Drawing.Point(-6, 293);
+            this.textTime.Name = "textTime";
+            this.textTime.Size = new System.Drawing.Size(686, 79);
+            this.textTime.TabIndex = 9;
+            this.textTime.Text = "Прошедшее время: ";
             // 
             // textCountFiles
             // 
             this.textCountFiles.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textCountFiles.Location = new System.Drawing.Point(-6, 72);
+            this.textCountFiles.Location = new System.Drawing.Point(-6, 160);
             this.textCountFiles.Name = "textCountFiles";
-            this.textCountFiles.Size = new System.Drawing.Size(1184, 45);
+            this.textCountFiles.Size = new System.Drawing.Size(686, 79);
             this.textCountFiles.TabIndex = 8;
             this.textCountFiles.Text = "Количество обаботанных файлов: ";
             // 
@@ -227,25 +228,36 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Текст, содежащийся в файле: ";
             // 
-            // button4
+            // buttonStop
             // 
-            this.button4.Location = new System.Drawing.Point(29, 225);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(302, 89);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Остановить";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonStop.AutoSize = true;
+            this.buttonStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(182)))), ((int)(((byte)(172)))));
+            this.buttonStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStop.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonStop.Location = new System.Drawing.Point(0, 418);
+            this.buttonStop.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonStop.Name = "buttonStop";
+            this.buttonStop.Size = new System.Drawing.Size(231, 48);
+            this.buttonStop.TabIndex = 15;
+            this.buttonStop.Text = "Остановить";
+            this.buttonStop.UseVisualStyleBackColor = false;
+            this.buttonStop.Click += new System.EventHandler(this.StopWorking_Click);
             // 
-            // button5
+            // buttonReStart
             // 
-            this.button5.Location = new System.Drawing.Point(29, 402);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(302, 106);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Возобновить";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonReStart.AutoSize = true;
+            this.buttonReStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(182)))), ((int)(((byte)(172)))));
+            this.buttonReStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReStart.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonReStart.Location = new System.Drawing.Point(0, 418);
+            this.buttonReStart.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonReStart.Name = "buttonReStart";
+            this.buttonReStart.Size = new System.Drawing.Size(231, 48);
+            this.buttonReStart.TabIndex = 16;
+            this.buttonReStart.Text = "Возобновить";
+            this.buttonReStart.UseVisualStyleBackColor = false;
+            this.buttonReStart.Visible = false;
+            this.buttonReStart.Click += new System.EventHandler(this.ReStart_Click);
             // 
             // Form1
             // 
@@ -257,7 +269,7 @@
             this.Controls.Add(this.specialTextGroup);
             this.Controls.Add(this.secondTask);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.ResultBox);
             this.Controls.Add(this.startDirectory);
             this.Controls.Add(this.label1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -267,7 +279,9 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Прогамма для поиска файлов по заданным критериям";
-            this.groupBox1.ResumeLayout(false);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.ResultBox.ResumeLayout(false);
+            this.ResultBox.PerformLayout();
             this.secondTask.ResumeLayout(false);
             this.secondTask.PerformLayout();
             this.specialTextGroup.ResumeLayout(false);
@@ -284,8 +298,8 @@
         
         private System.Windows.Forms.TextBox template;
         private System.Windows.Forms.Label workingFile;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox ResultBox;
+        private System.Windows.Forms.Label textTime;
         private System.Windows.Forms.Label textCountFiles;
         public System.Windows.Forms.FolderBrowserDialog chooseFolder;
         private System.Windows.Forms.TextBox startDirectory;
@@ -298,8 +312,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonStop;
+        private System.Windows.Forms.Button buttonReStart;
     }
 }
 
