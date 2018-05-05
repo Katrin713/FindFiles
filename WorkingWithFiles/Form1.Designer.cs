@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.buttonStop = new System.Windows.Forms.Button();
             this.buttonReStart = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.ResultBox.SuspendLayout();
             this.secondTask.SuspendLayout();
             this.specialTextGroup.SuspendLayout();
@@ -259,6 +261,11 @@
             this.buttonReStart.Visible = false;
             this.buttonReStart.Click += new System.EventHandler(this.ReStart_Click);
             // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -314,6 +321,7 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button buttonStop;
         private System.Windows.Forms.Button buttonReStart;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
